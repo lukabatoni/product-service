@@ -2,12 +2,8 @@ package com.techie.microservices.product.controller;
 
 import com.techie.microservices.product.dto.ProductRequest;
 import com.techie.microservices.product.dto.ProductResponse;
-import com.techie.microservices.product.model.Product;
 import com.techie.microservices.product.service.ProductService;
 import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
