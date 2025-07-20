@@ -6,6 +6,7 @@ import com.techie.microservices.product.service.ProductService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,9 +21,9 @@ public class ProductController {
   private final ProductService productService;
 
   @PostMapping
-  @ResponseStatus(HttpStatus.CREATED)
-  public ProductResponse createProduct(@RequestBody ProductRequest productRequest) {
-    return productService.createProduct(productRequest);
+  public ResponseEntity<ProductResponse> createProduct(@RequestBody ProductRequest productRequest) {
+    ProductResponse response = productService.createProduct(productRequest);
+    return ResponseEntity.status(HttpStatus.CREATED).body(response);
   }
 
   @GetMapping
