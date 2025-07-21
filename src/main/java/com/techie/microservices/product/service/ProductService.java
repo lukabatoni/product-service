@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 public class ProductService {
   private final ProductRepository productRepository;
 
+  private static final String PRODUCTS_ARE_FETCHED_SUCCESSFULLY = "Products are fetched successfully";
+
   public ProductResponse createProduct(ProductRequest productRequest) {
     Product product = Product.builder()
         .id(productRequest.id())
@@ -40,7 +42,7 @@ public class ProductService {
             product.getDescription(),
             product.getPrice()))
         .toList();
-    log.info("Products are fetched successfully");
+    log.info(PRODUCTS_ARE_FETCHED_SUCCESSFULLY);
     return products;
   }
 }
